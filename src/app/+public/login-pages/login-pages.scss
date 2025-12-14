@@ -1,0 +1,38 @@
+:host{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+.login{
+    background-color: cornsilk;
+    border: 1px solid rgb(240, 106, 151);
+    border-radius: 0.3em;
+    padding: 1em;
+    box-shadow: 0 0 0.3em 0em pink;
+    div{
+        margin: 0.5em 0;
+        label  :not(list-style-type){
+        display: block;
+    
+        }
+    }
+    button[display]{
+background-color: antiquewhite;
+    }
+    .message{
+        background-color: rgba(219, 35, 115, 0.24);
+        padding: 0.6;
+        border-radius: 0.4;
+        text-align: center;
+    }
+    button{
+        background-color: rgb(243, 11, 57);
+        color: antiquewhite;
+        width: 100%;
+        box-sizing:border-box;
+        border:none;
+        border-radius:0.3em;
+        padding: 0.3em;
+    }
+}
