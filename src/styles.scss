@@ -2,7 +2,6 @@
 body{
     background-color: crimson;
     margin: 0;
-
 }
 @font-face {
     font-family:persion ;
@@ -10,4 +9,12 @@ body{
 }
 *{
     font-family: persion;
+}
+.alert{
+    background-color: rgb(223, 162, 162);
+    border: 1px salmon;
+    padding: 1em;
+    border-radius: 0.2em ;
+    margin: 1em;
+    text-align: center;
 }
