@@ -1,12 +1,12 @@
 import { Injectable,OnInit } from '@angular/core';
-import { MembersItem, MembersPage } from './members-page';
+import { MembersItem as MemberItem, MembersPage } from './members-page';
 import { BooksPage } from '../books-page/books-page';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MembersService {
-  private data: MembersItem[] = [
+  private data: MemberItem[] = [
      { id: 1, fullName: 'C++', phone: 'آن',nationalCode: 'آنها', address:'تهران' },
      { id: 2, fullName: ' برنامه نویسی',phone : 'آن', nationalCode: 'آنها', address: 'مشهد' },
      { id: 3, fullName: 'پایگاه داده', phone: 'ما', nationalCode: 'آنها', address: 'اصفهان' },
