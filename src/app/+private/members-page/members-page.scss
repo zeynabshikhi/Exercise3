@@ -10,7 +10,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     th {
-        background-color: rgb(109, 109, 109);
+        background-color: rgb(18, 13, 13);
         color: white;
         text-align: right;
     }
@@ -19,13 +19,13 @@ table {
         padding: 0.2em;
     }
     th {
-        border-bottom: 1px solid rgb(145, 145, 145);
+        border-bottom: 1px solid rgb(219, 59, 177);
     }
     tr {
-        border-bottom: 1px solid rgb(145, 145, 145);
+        border-bottom: 1px solid rgb(222, 132, 132);
     }
     tr:nth-of-type(2n+1) {
-        background-color: lightgray;
+        background-color: rgb(200, 198, 198);
     }
 }
 .ghofl{
