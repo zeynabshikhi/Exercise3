@@ -1,0 +1,67 @@
+@if (state=='list') {
+<button (click)="add()" class="primary">افزودن</button>
+<table>
+    <thead>
+        <tr>
+            <th>شناسه</th>
+            <th>نام و نام  خانوادگی</th>
+            <th>شماره تماس</th>
+            <th>کدملی</th>
+            <th>آدرس</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of data; track $index) {
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.fullName}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.nationalCode}}</td>
+            <td>{{item.address}}</td>
+            <td>
+                <button (click)="edit( item)" class="primary">ویرایش</button>
+                <button (click)="remove( item)" class="primary">حذ ف</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+@else{
+    @if (state=='remove') {
+    <div class="alert">
+        آیا از حذف این اعضا اطمینال دارید؟
+    </div>
+}
+<form (ngSubmit)="save()">
+    <!--@if(state!='edit'){-->
+    <div>
+        <input [disabled]="state=='edit'||  state=='remove'" [(ngModel)]="item.id" id="id" name="id" type="number"
+            placeholder="شناسه">
+    </div>
+    <!--}-->
+    <div>
+        <input [disabled]="state=='remove'" [(ngModel)]="item.fullName" id="fullName" name="fullName" type="text"
+            placeholder="نام ونام خانوادگی">
+    </div>
+    <div>
+        <input [disabled]="state=='remove'" [(ngModel)]="item.phone" id="phone" name="phone" type="number"
+            placeholder="شماره تماس">
+    </div>
+    <div>
+        <input [disabled]="state=='remove'" [(ngModel)]="item.nationalCode" id="nationalCode" name="nationalCode" type="number"
+            placeholder="کدملی">
+    </div>
+    <div>
+        <input [disabled]="state=='remove'" [(ngModel)]="item.address" id="address" name="address" type="text"
+            placeholder="آدرس">
+    </div>
+    <div>
+        <button class="primary" type="submit"> تایید </button>
+        <button (click)="cancel()" class="primary" type="button"> انصراف </button>
+    </div>
+</form>
+}
+
+
