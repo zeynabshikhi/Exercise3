@@ -1,0 +1,45 @@
+@if ( mystate=='list'){
+<div>
+    <button  class="add" (click)="onAdd.emit()">افزودن</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            @for (item of columns; track $index) {
+            <th>{{item.title}}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of mydata; track $index) {
+
+
+        
+        <tr>
+            @for (col of columns; track $index) {
+                <td>{{item[col.field]}}</td>
+            }
+            <td>
+                <button  class="edit"(click)="onEdit.emit(item)"> ویرایش</button>
+                <button  class="remove" (click)="onRemove.emit(item)"> حذف</button>
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>
+}
+@else {
+     @if (mystate=='remove') {
+    <div class="alert">
+        آیا از حذف این عضو اطمینال دارید؟
+    </div>
+}
+<form (ngSubmit)="onSava.emit()">
+    <ng-content></ng-content>
+    <div>
+        <button class="primary"    (click)="onSava.emit()"> تایید</button>
+        <button (click)=" onCancel.emit()" type="button">انصراف</button>
+    </div>
+</form>
+
+}

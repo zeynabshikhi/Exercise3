@@ -1,39 +1,23 @@
 import { Injectable } from '@angular/core';
-import { BookItem } from './books-page';
+import { BookItem as BookItem, BooksPage } from './books-page';
+import { BaseService } from '../../+shared/+base/base-service';
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class BooksService {
-  private data: BookItem[] = [
+export class BooksService extends BaseService<BookItem>{
+override data: BookItem[] = [
     { id: 1, title: 'C++', writer: 'آن', publisher: 'آنها', price: 30000 },
     { id: 2, title: ' برنامه نویسی', writer: 'آن', publisher: 'آنها', price: 50000 },
     { id: 3, title: 'پایگاه داده', writer: 'ما', publisher: 'آنها', price: 60000 },
     { id: 4, title: 'طراحی وب', writer: 'باشه', publisher: 'آنها ', price: 70000 },
     { id: 5, title: 'مدار منطقی', writer: 'صحیح', publisher: 'آنها ', price: 80000 },
   ];
-//تابعی است که لیست کتاب هارا تحویل میدهد
-//فعلا با داده های ماک کار میکند اما در آینده باید از یک داده دریافت کند
-  list() {
-    return [...this.data];
-  }
-  
-  //این یک تابع است که به عنوان پارامتردریافت و به لیست کتابها اضافه میکند
-  //فعلا به داده ماک اضافه میکند اما باید بعدا به بک اند اضافه کند
-  add(item:BookItem){
-    this.data.push(item);
-  }
-  edit(item:BookItem){
-    const index= this.data.findIndex(b=>b.id==item.id);
-    if(index!=-1){
-this.data[index].title=item.title;
-this.data[index].writer=item.writer;
-this.data[index].publisher=item.publisher;
-this.data[index].price=item.price;
-    }
-  }
-  remove(item:BookItem){{
-this.data =this.data.filter(b=>b.id!==item.id);
-    }
+  override update (destination: BookItem,Source:BookItem):void{
+ destination.title=Source.title;
+   destination.writer=Source.writer;
+   destination.publisher=Source.publisher;
+    destination.price=Source.price;
   }
 }
